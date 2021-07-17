@@ -1,0 +1,26 @@
+.home-banner{
+    background: url("https://as1.ftcdn.net/v2/jpg/03/24/64/44/1000_F_324644401_lYsDy30Cjk7e3WRPEnt7qck5h9GktqPU.jpg") no-repeat center / 100% 100%;
+    height: 300px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.home-banner h1{
+    color: #ecf0f1;
+    font-size: 45px;
+    letter-spacing: 4px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.banner-bg{
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+}
