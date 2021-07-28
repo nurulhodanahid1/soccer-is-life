@@ -15,8 +15,8 @@ const League = (props) => {
     useEffect(() => {
         const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLeague}`;
         fetch(url)
-        .then(res => res.json())
-        .then(data => setLeagueLogo(data.leagues))
+            .then(res => res.json())
+            .then(data => setLeagueLogo(data.leagues))
     }, [idLeague]);
     const history = useHistory();
     const showLeagueInfo = (id) => {
@@ -25,17 +25,17 @@ const League = (props) => {
     }
     return (
         <div className="container">
-            <div className="league-container">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img className="d-block mx-auto img-fluid w-50" src={leagueLogo[0]?.strBadge} />
-                    <Card.Body>
-                        <Card.Title>{strLeague}</Card.Title>
-                        <Card.Text>Sports type {strSport}</Card.Text>
-                        <Button onClick={() => showLeagueInfo(idLeague)} variant="outline-primary">Explore <FontAwesomeIcon icon={faArrowRight} /></Button>
-                    </Card.Body>
-                </Card>
+                <div className="league-container">
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img className="d-block mx-auto img-fluid w-50" src={leagueLogo[0]?.strBadge} />
+                        <Card.Body>
+                            <Card.Title>{strLeague}</Card.Title>
+                            <Card.Text>Sports type {strSport}</Card.Text>
+                            <Button onClick={() => showLeagueInfo(idLeague)} variant="outline-primary">Explore <FontAwesomeIcon icon={faArrowRight} /></Button>
+                        </Card.Body>
+                    </Card>
+                </div>
             </div>
-        </div>
     );
 };
 

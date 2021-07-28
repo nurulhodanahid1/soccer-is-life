@@ -19,6 +19,7 @@ const LeagueDetails = () => {
             .then(res => res.json())
             .then(data => setLeagueDetails(data.leagues[0]))
     }, [leagueId]);
+    const [gender, setGender] = useState("Male");
     // console.log(leagueDetails)
     const { strFacebook, strTwitter, strYoutube, intFormedYear, strCountry, strSport, strGender, strSports, strDescriptionEN, strLeague, strBadge } = leagueDetails;
     return (
@@ -38,7 +39,7 @@ const LeagueDetails = () => {
                             <h4><FontAwesomeIcon icon={faMars} /> Gender: {strGender}</h4>
                         </Col>
                         <Col md={7}>
-                            {strGender === "Male" ? (
+                            {strGender === gender ? (
                                 <Image className="img-height rounded" src={maleImg} alt={strSports} />
                             ) : (
                                 <Image className="img-height rounded" src={femaleImg} alt={strSports} />
