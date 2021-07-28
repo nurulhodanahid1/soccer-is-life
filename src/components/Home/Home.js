@@ -12,13 +12,13 @@ const Home = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            const shuffle = a => {
-                for (let i = a.length; i; i--) {
-                    let j = Math.floor(Math.random() * i);
-                    [a[i - 1], a[j]] = [a[j], a[i - 1]];
-                }
-            }
-            shuffle(data.leagues);
+            // const shuffle = a => {
+            //     for (let i = a.length; i; i--) {
+            //         let j = Math.floor(Math.random() * i);
+            //         [a[i - 1], a[j]] = [a[j], a[i - 1]];
+            //     }
+            // }
+            // shuffle(data.leagues);
             const first12 = data.leagues.slice(0, 12);
             setLeagues(first12)
         })

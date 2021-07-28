@@ -7,6 +7,8 @@ import './LeagueDetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faFlag, faFutbol, faMars } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import maleImg from "../../images/male.png";
+import femaleImg from "../../images/female.png"
 
 const LeagueDetails = () => {
     const { leagueId } = useParams();
@@ -17,8 +19,8 @@ const LeagueDetails = () => {
             .then(res => res.json())
             .then(data => setLeagueDetails(data.leagues[0]))
     }, [leagueId]);
-    console.log(leagueDetails)
-    const {strFacebook, strTwitter, strYoutube, intFormedYear, strCountry, strSport,strGender, strPoster, strSports, strDescriptionEN, strLeague, strBadge} = leagueDetails;
+    // console.log(leagueDetails)
+    const { strFacebook, strTwitter, strYoutube, intFormedYear, strCountry, strSport, strGender, strSports, strDescriptionEN, strLeague, strBadge } = leagueDetails;
     return (
         <div>
             <div className="home-banner">
@@ -36,7 +38,11 @@ const LeagueDetails = () => {
                             <h4><FontAwesomeIcon icon={faMars} /> Gender: {strGender}</h4>
                         </Col>
                         <Col md={7}>
-                            <Image className="img-height rounded" src={strPoster} alt={strSports} />
+                            {strGender === "Male" ? (
+                                <Image className="img-height rounded" src={maleImg} alt={strSports} />
+                            ) : (
+                                <Image className="img-height rounded" src={femaleImg} alt={strSports} />
+                            )}
                         </Col>
                     </Row>
                 </div>
@@ -44,12 +50,12 @@ const LeagueDetails = () => {
                     <p>{strDescriptionEN}</p>
                 </div>
                 <div className="footer-icon text-center">
-            <ul>
-                <li><a href={`https://${strFacebook}`}><FontAwesomeIcon icon={faFacebookF} /></a></li>
-                <li><a href={`https://${strTwitter}`}><FontAwesomeIcon icon={faTwitter} /></a></li>
-                <li><a href={`https://${strYoutube}`}><FontAwesomeIcon icon={faYoutube} /></a></li>
-            </ul>
-        </div>
+                    <ul>
+                        <li><a href={`https://${strFacebook}`}><FontAwesomeIcon icon={faFacebookF} /></a></li>
+                        <li><a href={`https://${strTwitter}`}><FontAwesomeIcon icon={faTwitter} /></a></li>
+                        <li><a href={`https://${strYoutube}`}><FontAwesomeIcon icon={faYoutube} /></a></li>
+                    </ul>
+                </div>
             </Container>
         </div>
     );
